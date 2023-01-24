@@ -1,24 +1,20 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import GreenButton from './GreenButton';
 
 function App() {
+  const login = () => {
+    console.log('login')
+  }
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <GreenButton
+        id="button-login-continue"
+        onClick={() => login()}
+        title={'Entrar'}
+      /> </header>
     </div>
   );
 }

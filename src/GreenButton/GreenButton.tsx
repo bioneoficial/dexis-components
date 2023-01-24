@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import * as Styles from './GreenButton.styles';
 
-interface Props {
+type Props = {
   onClick: () => void;
   title: string;
   id?: string;
