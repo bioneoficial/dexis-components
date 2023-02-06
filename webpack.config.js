@@ -4,25 +4,18 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development', // pegar ambiente do .env... ajustar config pra isso
-  entry: [
-    './src/index.tsx'
-  ],
-  devtool: 'inline-source-map',
-  output: {
-    path: path.join(__dirname, '/dist'),
-    filename: 'bundle.js'
-  },
+  entry: './src/index.tsx',
   devtool: 'inline-source-map',
   devServer: {
     static: './dist',
   },
   module: {
     rules: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader'
-      },
+      // {
+      //   test: /\.jsx?$/,
+      //   exclude: /node_modules/,
+      //   loader: 'babel-loader'
+      // },
       {
         test: /\.tsx?$/,
         use: 'ts-loader',
@@ -65,26 +58,18 @@ module.exports = {
           }
         }
       },
-      {
-        test: /\.[jt]s$/,
-        exclude: /(node_modules)/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env'],
-            },
-          },
-          {
-            loader: 'ts-loader',
-            options: {
-              compilerOptions: {
-                noEmit: false,
-              },
-            },
-          },
-        ],
-      },
+      // {
+      //   test: /\.[jt]s$/,
+      //   exclude: /(node_modules)/,
+      //   use: [
+      //     {
+      //       loader: 'babel-loader',
+      //       options: {
+      //         presets: ['@babel/preset-env'],
+      //       },
+      //     },
+      //   ],
+      // },
     ]
   },
   resolve: {
@@ -99,5 +84,9 @@ module.exports = {
       inject: true,
     }),
     new MiniCssExtractPlugin(),
-  ]
+  ],
+  output: {
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js'
+  },
 }
