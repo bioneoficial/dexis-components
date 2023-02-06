@@ -1,9 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const createStyledComponentsTransformer = require('typescript-plugin-styled-components').default;
+// const createStyledComponentsTransformer = require('typescript-plugin-styled-components').default;
 
-const styledComponentsTransformer = createStyledComponentsTransformer();
+// const styledComponentsTransformer = createStyledComponentsTransformer();
 
 module.exports = {
   mode: 'production',
@@ -15,6 +15,18 @@ module.exports = {
   },
   module: {
     rules: [
+      // {
+      //   test: /\.m?js$/,
+      //   exclude: /node_modules/,
+      //   use: {
+      //     loader: 'babel-loader',
+      //     options: {
+      //       presets: [
+      //         ['@babel/preset-env', { targets: "defaults" }]
+      //       ]
+      //     }
+      //   }
+      // },
       {
         test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
@@ -29,14 +41,14 @@ module.exports = {
             }
         }
       },
-      {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-        options: {
-          getCustomTransformers: () => ({ before: [styledComponentsTransformer] })
-        },
-      },
+      // {
+      //   test: /\.tsx?$/,
+      //   loader: 'ts-loader',
+      //   exclude: /node_modules/,
+      //   options: {
+      //     getCustomTransformers: () => ({ before: [styledComponentsTransformer] })
+      //   },
+      // },
       {
         test: /\.(scss|css)$/,
         use: [
@@ -74,18 +86,6 @@ module.exports = {
           }
         }
       },
-      // {
-      //   test: /\.[jt]s$/,
-      //   exclude: /(node_modules)/,
-      //   use: [
-      //     {
-      //       loader: 'babel-loader',
-      //       options: {
-      //         presets: ['@babel/preset-env'],
-      //       },
-      //     },
-      //   ],
-      // },
     ]
   },
   resolve: {
