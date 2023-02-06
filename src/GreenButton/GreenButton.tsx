@@ -1,13 +1,13 @@
-import React, { FC } from 'react';
+import * as React from 'react';
 import * as Styles from './GreenButton.styles';
 
 type Props = {
   onClick: () => void;
   title: string;
-  id?: string;
-}
+  id: string;
+};
 
-const GreenButton: FC<Props> = ({ onClick, title, id }: Props) => (
+const GreenButton: React.FC<Props> = ({ onClick, title, id }: Props) => (
   <Styles.Button id={id} onClick={onClick}>
     {title}
   </Styles.Button>
