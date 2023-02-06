@@ -16,39 +16,31 @@ module.exports = {
   module: {
     rules: [
       // {
-      //   test: /\.m?js$/,
+      //   test: /\.tsx?$/,
       //   exclude: /node_modules/,
       //   use: {
       //     loader: 'babel-loader',
       //     options: {
       //       presets: [
-      //         ['@babel/preset-env', { targets: "defaults" }]
+      //         [
+      //           '@babel/preset-env', {
+      //              targets: "defaults" 
+      //           }, 
+      //           "@babel/preset-typescript"
+      //         ]
       //       ]
       //     }
       //   }
       // },
       {
-        test: /\.(ts|js)x?$/,
-        exclude: /node_modules/,
-        use: {
-            loader: 'babel-loader',
-            options: {
-                presets: [
-                    "@babel/preset-env",
-                    "@babel/preset-react",
-                    "@babel/preset-typescript",
-                ]
-            }
-        }
+        test: /\.tsx?$/,
+        loader: 'babel-loader',
       },
-      // {
-      //   test: /\.tsx?$/,
-      //   loader: 'ts-loader',
-      //   exclude: /node_modules/,
-      //   options: {
-      //     getCustomTransformers: () => ({ before: [styledComponentsTransformer] })
-      //   },
-      // },
+      {
+        test: /\.js$/,
+        use: ["source-map-loader"],
+        enforce: "pre"
+      },
       {
         test: /\.(scss|css)$/,
         use: [
