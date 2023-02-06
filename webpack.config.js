@@ -3,11 +3,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  mode: 'development', // pegar ambiente do .env... ajustar config pra isso
+  mode: 'production',
   entry: './src/index.tsx',
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
   devServer: {
     static: './dist',
+    hot: true,
   },
   module: {
     rules: [
@@ -87,6 +88,7 @@ module.exports = {
   ],
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js', 
+    clean: true,
   },
 }
