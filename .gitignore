@@ -13,7 +13,6 @@
 
 #enviroment
 .env
-package-lock.json
 
 # misc
 .DS_Store
