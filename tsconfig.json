@@ -7,7 +7,9 @@
     "lib": ["DOM", "ES6", "DOM.Iterable", "ScriptHost", "ES2016.Array.Include"],
     "jsx": "react",
     "allowJs": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+
+    "allowSyntheticDefaultImports": true,
   },
   "include": [
     "src",
