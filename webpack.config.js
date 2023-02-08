@@ -7,7 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'production',
-  entry: './src/index.tsx',
+  entry: './src/index.ts',
   devtool: 'source-map',
   devServer: {
     static: './dist',
@@ -32,10 +32,11 @@ module.exports = {
       //     }
       //   }
       // },
-      {
-        test: /\.tsx?$/,
-        loader: 'babel-loader',
-      },
+      // {
+      //   test: /\.tsx?$/,
+      //   loader: 'babel-loader',
+      // },
+      { test: /\.tsx?$/, loader: "ts-loader" },
       {
         test: /\.js$/,
         enforce: 'pre',
